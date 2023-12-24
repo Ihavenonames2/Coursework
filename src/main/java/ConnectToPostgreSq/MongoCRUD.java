@@ -16,37 +16,40 @@ public class MongoCRUD {
 
             MongoDatabase facultyDatabase = mongoClient.getDatabase("faculties");
             MongoCollection<Document> facultyCollection = facultyDatabase.getCollection("facultyCollection");
+            while(true)
+            {
 
-            // Example: Read all documents from the collections
-            System.out.println("Group Collection:");
-            readAllDocuments(groupCollection);
-            System.out.println("\nFaculty Collection:");
-            readAllDocuments(facultyCollection);
+                // Check if the user wants to add, delete a student from the groupCollection, or add/delete a group from facultyCollection
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Enter 1 to add student into group, 2 to delete student from group, 3 to add new group to facultyCollection, 4 to delete group from facultyCollection, 5 to display collections: ");
+                int userInput = scanner.nextInt();
 
-            // Check if the user wants to add, delete a student from the groupCollection, or add/delete a group from facultyCollection
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter 1 to add student into group, 2 to delete student from group, 3 to add new group to facultyCollection, 4 to delete group from facultyCollection: ");
-            int userInput = scanner.nextInt();
+                if (userInput == 1) {
+                    // Create a new element in groupCollection
+                    createNewGroupElement(groupCollection, scanner);
+                } else if (userInput == 2) {
+                    // Delete a student from the groupCollection
+                    deleteStudentFromGroup(groupCollection, scanner);
+                } else if (userInput == 3) {
+                    // Add a new group to facultyCollection
+                    addGroupToFaculty(facultyCollection, scanner);
+                } else if (userInput == 4) {
+                    // Delete a group from the facultyCollection
+                    deleteGroupFromFaculty(facultyCollection, scanner);
+                }
+                else if (userInput == 5) {
+                    // Delete a group from the facultyCollection
+                    System.out.println("\nGroup Collection After Update:");
+                    readAllDocuments(groupCollection);
+                    System.out.println("\nFaculty Collection After Update:");
+                    readAllDocuments(facultyCollection);
+                }
 
-            if (userInput == 1) {
-                // Create a new element in groupCollection
-                createNewGroupElement(groupCollection, scanner);
-            } else if (userInput == 2) {
-                // Delete a student from the groupCollection
-                deleteStudentFromGroup(groupCollection, scanner);
-            } else if (userInput == 3) {
-                // Add a new group to facultyCollection
-                addGroupToFaculty(facultyCollection, scanner);
-            } else if (userInput == 4) {
-                // Delete a group from the facultyCollection
-                deleteGroupFromFaculty(facultyCollection, scanner);
+                // Read all documents again to verify the update or decrease
+
             }
+            // Example: Read all documents from the collections
 
-            // Read all documents again to verify the update or decrease
-            System.out.println("\nGroup Collection After Update:");
-            readAllDocuments(groupCollection);
-            System.out.println("\nFaculty Collection After Update:");
-            readAllDocuments(facultyCollection);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -42,7 +42,6 @@ public class WorkWithPostgreSql {
             jedis.rpush(String.valueOf(currentDate.getDayOfYear()), String.valueOf("Addedgroup " + groupName + " "+ currentTime));
             System.out.println("Group added successfully.");
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -557,22 +556,4 @@ public class WorkWithPostgreSql {
             e.printStackTrace();
         }
     }
-    public static void menu()
-    {
-        System.out.println("Меню");
-        System.out.println("Натисніть -1,якщо ви хочете створити таблицю груп");
-        System.out.println("Натисніть -2,якщо ви хочете створити таблицю студентів ");
-        System.out.println("Натисніть -3,якщо ви хочете добавити групу в таблицю  ");
-        System.out.println("Натисніть -4,якщо ви хочете добавити студента в таблицю ");
-        System.out.println("Натисніть -5,якщо ви хочете отримати таблицю груп ");
-        System.out.println("Натисніть -6,якщо ви хочете отримати таблицю студентів ");
-        System.out.println("Натисніть -7,якщо ви хочете зробити оновлення в таблиці студентів");
-        System.out.println("Натисніть -8,якщо ви хочете видалити студента з таблиці за ID");
-        System.out.println("Натисніть -8,якщо ви хочете видали студента SQL запитом");
-        System.out.println("Натисніть -9,якщо ви хочете отримати сердній бал груп");
-        System.out.println("Натисніть -10,якщо ви хочете отримати список на відрахування");
-        System.out.println("Натисніть -11,якщо ви хочете отримати список студента та групи");
-    }
-
-
 }
