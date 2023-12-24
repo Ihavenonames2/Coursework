@@ -21,12 +21,10 @@
             <artifactId>postgresql</artifactId>
             <version>LATEST</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-sync</artifactId>
-            <version>LATEST</version> <!-- Укажите актуальную версию -->
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
